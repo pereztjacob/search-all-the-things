@@ -12,6 +12,7 @@ Possible API choices:
 * https://swapi.co/
 
 API Requirements:
+* Has to support CORS (search from AJAX call)
 * Supports searching and paging
 * Would be best for tomorrow's lab if it support a detail view of the items returned from search
 
