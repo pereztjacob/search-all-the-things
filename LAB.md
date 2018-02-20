@@ -25,6 +25,7 @@ API Requirements:
 1. Call the API and display a loading indicator
 1. Present the search results and clear the loading indicator
 1. Display the Search Terms used and total count of results as well as "page of pages"
+    - Account for "page size". Does not have to be user settable.
 1. Show Paging Controls
     - Previous and Next
     - Disable when not possible
