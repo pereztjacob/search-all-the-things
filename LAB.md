@@ -9,6 +9,7 @@ Possible API choices:
 * http://www.omdbapi.com/
 * https://developers.google.com/books/
 * https://pokeapi.co/api/v2/
+* https://swapi.co/
 
 API Requirements:
 * Supports searching and paging
