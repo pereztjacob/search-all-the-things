@@ -1,9 +1,22 @@
-const URL = 'https://www.googleapis.com/books/v1/volumes?q=';
-const API_KEY = 'AIzaSyC15YhYq4uguEcPkzx7byzQQjKxiljDbuo';
+const API_KEY = '0c2e4850e2c449fa84ddd8b407fea07f';
+const API_QUERY = `apiKey=${API_KEY}`;
+const BASE_URL = 'https://newsapi.org/v2';
+const EVERYTHING_URL = `${BASE_URL}/everything?${API_QUERY}`;
+// const SOURCES_URL = `${BASE_URL}/sources?${API_QUERY}`;
+const SORT_QUERY = 'sortBy=publishedAt';
 
-export function getBooks(search, /* page = 1,*/ pageSize = 20, startIndex = 0){
-  const url = `${URL}${search}&maxResults=${pageSize}&startIndex=${startIndex}&orderBy=newest&key=${API_KEY}`;
+const throwJson = json => { throw json; };
+const get = url => fetch(url)
+  .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-  return fetch(url)
-    .then(response => response.json());
+export function search({ topic, sources = [] }, page = 1, pageSize = 20) {
+  const search = `&q=${topic}&sources=${sources.join()}`;
+  const paging = `&page=${page}&pageSize=${pageSize}`;
+  const sort = `&${SORT_QUERY}`;
+
+  return get(`${EVERYTHING_URL}${search}${paging}${sort}`);
 }
+
+// export function getSources() {
+//   return get(SOURCES_URL).then(r => r.sources);
+// }
