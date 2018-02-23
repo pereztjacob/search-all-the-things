@@ -8,14 +8,15 @@ export default class Article extends Component {
   };
 
   render() {
-    const { title, author, description, publishedAt, url, urlToImage } = this.props.article;
-    
+    const { title, authors, description, publishedDate, url } = this.props.article.volumeInfo;
+    const imageLinks = this.props.article.volumeInfo.imageLinks;
+
     return (
       <li>
         <a href={url} target="_blank">
-          <h2>{title} by {author} on {publishedAt}</h2>
+          <h2>{title} by {authors} on {publishedDate}</h2>
           <p>{description}</p>
-          <img src={urlToImage}/>
+          {imageLinks ? <img src={imageLinks.thumbnail}/> : <div>no image</div>}
         </a>
       </li>
     );

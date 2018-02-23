@@ -52,6 +52,8 @@ export default class App extends Component {
   render() {
     const { articles, error, loading, page, topic, totalResults } = this.state;
 
+    articles ? console.log(articles[0].volumeInfo.imageLinks.thumbnail) : console.log('improper object request');
+
     return (
       <div className={styles.app}>
         <header>
