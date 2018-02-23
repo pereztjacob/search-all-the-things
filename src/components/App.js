@@ -26,8 +26,8 @@ export default class App extends Component {
     
     search({ topic }, page, perPage)
       .then(
-        ({ articles, totalResults }) => {
-          this.setState({ articles, totalResults });
+        ({ items, totalItems }) => {
+          this.setState({ articles: items, totalResults: totalItems });
         }, 
         error => this.setState({ error }))
       .then(() => {

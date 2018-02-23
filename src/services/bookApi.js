@@ -7,6 +7,6 @@ const get = url => fetch(url)
 
 export function search({ topic }, page = 1, pageSize = 20) {
   const url = `${BASE_URL}${topic}&maxResults=${pageSize}&startIndex=${page}&orderBy=newest&key=${API_KEY}`;
-
+  console.log(url);
   return get(url);
 }
