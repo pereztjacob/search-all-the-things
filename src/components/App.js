@@ -20,11 +20,11 @@ export default class App extends Component {
   };
 
   searchNews = () => {
-    const { topic, sources, page, perPage } = this.state;
+    const { topic, page, perPage } = this.state;
 
     this.setState({ loading: true, error: null });
     
-    search({ topic, sources }, page, perPage)
+    search({ topic }, page, perPage)
       .then(
         ({ articles, totalResults }) => {
           this.setState({ articles, totalResults });

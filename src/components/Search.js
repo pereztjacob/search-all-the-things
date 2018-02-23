@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Search.css';
-import Sources from './Sources';
 
 export default class Search extends Component {
 
@@ -11,7 +10,6 @@ export default class Search extends Component {
 
   state = {
     topic: '',
-    sources: []
   };
 
   handleSubmit = (event) => {
@@ -23,10 +21,6 @@ export default class Search extends Component {
     this.setState({ topic: target.value });
   };
 
-  handleSources = sources => {
-    this.setState({ sources });
-  };
-
   render() {
     const { topic } = this.state;
 
@@ -36,7 +30,6 @@ export default class Search extends Component {
           Search For:&nbsp;
           <input value={topic} onChange={this.handleTopic}/>
         </label>
-        <Sources onSelect={this.handleSources}/>
         <button>Search</button>
       </form>
     );
