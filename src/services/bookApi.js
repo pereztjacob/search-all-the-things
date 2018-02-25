@@ -6,7 +6,9 @@ const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
 export function search({ topic }, page = 1, pageSize = 20) {
-  const url = `${BASE_URL}${topic}&maxResults=${pageSize}&startIndex=${page}&orderBy=newest&key=${API_KEY}`;
+  let nextPage;
+  page == 1 ? nextPage = page : nextPage = (page - 1) * pageSize;
+  const url = `${BASE_URL}${topic}&maxResults=${pageSize}&startIndex=${nextPage}&orderBy=newest&key=${API_KEY}`;
   console.log(url);
   return get(url);
 }
