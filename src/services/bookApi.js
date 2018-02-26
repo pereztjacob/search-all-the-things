@@ -17,3 +17,8 @@ export function getBook(id){
   const url = `${BASE_URL}/${id}?key=${API_KEY}`;
   return get(url);
 }
+
+export const checkResponse = data => {
+  if(data.Response === 'True') return data;
+  throw data.error;
+};
